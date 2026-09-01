@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --background: #08090b;
+  --volt: #d6b45c;
+  --cyan: #7eb6c8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+  background: var(--background);
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 70% 20%, rgba(126, 182, 200, 0.055), transparent 28rem),
+    radial-gradient(circle at 22% 8%, rgba(214, 180, 92, 0.055), transparent 22rem),
+    #08090b;
+  color: #f4f1ea;
+  cursor: none;
+}
+
+button,
+a,
+[role="button"] {
+  cursor: none;
+}
+
+::selection {
+  background: rgba(214, 180, 92, 0.34);
+  color: #fff;
+}
+
+.noise::before,
+.site-noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.22) 0 1px, transparent 1px),
+    radial-gradient(circle at 75% 70%, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px);
+  background-size: 7px 7px, 11px 11px;
+  mix-blend-mode: overlay;
+}
+
+.scanline::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.9) 0,
+    rgba(255, 255, 255, 0.9) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+.carbon-divider {
+  background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,.04) 0 2px, transparent 2px 8px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,.025) 0 2px, transparent 2px 8px),
+    #09090b;
+}
+
+.pcb-signal {
+  offset-path: path("M 20 180 C 100 80, 190 230, 280 100 S 460 80, 540 190 S 700 260, 780 80");
+  offset-rotate: 0deg;
+}
+
+.thermal-scan:hover {
+  animation: thermalScan 0.45s ease-out;
+}
+
+@keyframes thermalScan {
+  0% {
+    filter: hue-rotate(0deg) saturate(1);
+  }
+  45% {
+    filter: hue-rotate(110deg) saturate(2.4) contrast(1.25);
+  }
+  100% {
+    filter: hue-rotate(0deg) saturate(1);
+  }
+}
+
+@keyframes dashDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes arcFlash {
+  0%, 100% {
+    opacity: 0.18;
+    filter: drop-shadow(0 0 2px rgba(126, 182, 200, 0.24));
+  }
+  8% {
+    opacity: 1;
+    filter: drop-shadow(0 0 20px rgba(214, 180, 92, 0.65));
+  }
+}
+
+@keyframes bootSlide {
+  0%, 72% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes bootFill {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  body {
+    cursor: auto;
+  }
+
+  button,
+  a,
+  [role="button"] {
+    cursor: auto;
+  }
+}
