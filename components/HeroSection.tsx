@@ -302,7 +302,9 @@ export default function HeroSection() {
       scrollTrigger: {
         trigger: wrapper,
         start: "top top",
-        end: "bottom bottom",
+        // Finish the sequence one viewport before the pin releases so the
+        // completed frame stays on screen, then the next section can enter.
+        end: "bottom bottom-=100vh",
         scrub: 1.8,
         invalidateOnRefresh: true
       }
@@ -336,18 +338,20 @@ export default function HeroSection() {
       .to(".stat-item", { opacity: 1, y: 0, stagger: 0.018, duration: 0.06, ease: "power2.out" }, 0.72)
       .to(state, { intensity: 0.7, duration: 0.18 }, 0.82);
 
-    const fade = ScrollTrigger.create({
+    sticky.style.opacity = "1";
+    state.alpha = 1;
+
+    // Pause the wind field only after the hero has fully left the viewport.
+    // Fading it earlier blanks the screen while the section still covers it.
+    const offscreen = ScrollTrigger.create({
       trigger: wrapper,
-      start: "bottom bottom",
-      end: "+=60",
-      scrub: true,
-      onUpdate: (self) => {
-        const opacity = 1 - self.progress;
-        sticky.style.opacity = String(opacity);
-        state.alpha = opacity;
-        state.paused = opacity <= 0.02;
+      start: "bottom top",
+      onEnter: () => {
+        state.paused = true;
       },
-      onEnterBack: () => {
+      onLeaveBack: () => {
+        sticky.style.opacity = "1";
+        state.alpha = 1;
         state.paused = false;
       }
     });
@@ -357,12 +361,12 @@ export default function HeroSection() {
       cancelAnimationFrame(raf);
       timeline.scrollTrigger?.kill();
       timeline.kill();
-      fade.kill();
+      offscreen.kill();
     };
   }, []);
 
   return (
-    <section id="hero-wrapper" ref={wrapperRef} className="relative h-[400vh]">
+    <section id="hero-wrapper" ref={wrapperRef} className="relative h-[500vh]">
       <span id="hero" className="absolute left-0 top-0" aria-hidden />
       <div
         id="hero-sticky"
