@@ -1,4 +1,5 @@
-import { Instagram, Mail, Zap } from "lucide-react";
+import { Instagram, Mail } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function FooterSection() {
@@ -7,10 +8,15 @@ export default function FooterSection() {
       <div className="absolute inset-0 animate-grid-drift opacity-[0.04] grid-overlay" />
       <div className="relative mx-auto grid max-w-7xl gap-10 px-4 md:grid-cols-3 md:px-8">
         <div>
-          <div className="flex items-center gap-2 font-display text-lg font-black tracking-[0.18em] text-ink">
-            <Zap className="h-5 w-5 text-volt" />
-            HYTECH RACING
-          </div>
+          <Link href="#hero" aria-label="HyTech Racing" className="inline-flex">
+            <Image
+              src="/hytech-logo-wordmark.png"
+              alt="HyTech Racing"
+              width={2765}
+              height={772}
+              className="h-20 w-auto"
+            />
+          </Link>
           <p className="mt-4 text-sm text-muted">Georgia Institute of Technology</p>
           <p className="mt-2 font-mono text-xs text-gt-gold">Formula SAE Electric — Est. 2012</p>
         </div>

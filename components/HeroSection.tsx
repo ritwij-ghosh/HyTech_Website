@@ -83,6 +83,9 @@ const STATS = [
   ["3RD", "OVERALL"]
 ];
 
+const CAR_VIEW_START = "-110 -20 1480 440";
+const CAR_VIEW_FIT = "-40 20 1280 376";
+
 function CrossMarker({ x, y, label }: { x: number; y: number; label: string }) {
   return (
     <g className="annotation-marker">
@@ -119,9 +122,9 @@ function Wheel({ cx, cy }: { cx: number; cy: number }) {
 
 function Callout({ title, value }: { title: string; value: string }) {
   return (
-    <div className="hero-callout rounded border border-[rgba(232,255,0,0.28)] bg-[rgba(14,14,20,0.86)] px-3 py-2 text-left backdrop-blur-md">
+    <div className="hero-callout w-full rounded border border-[rgba(232,255,0,0.28)] bg-[rgba(14,14,20,0.86)] px-3 py-2 text-left backdrop-blur-md">
       <div className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#00D4FF]">{title}</div>
-      <div className="mt-1 whitespace-nowrap font-mono text-[12px] text-[#E8FF00] tabular-nums">{value}</div>
+      <div className="mt-1 font-mono text-[11px] leading-snug text-[#E8FF00] tabular-nums">{value}</div>
     </div>
   );
 }
@@ -272,7 +275,7 @@ export default function HeroSection() {
       opacity: 0,
       stroke: "rgba(0,212,255,0.7)"
     });
-    gsap.set(".hero-clip-inner", { yPercent: 110 });
+    gsap.set(".tagline-inner", { yPercent: 110 });
     gsap.set(".hero-layer", { opacity: 0 });
     gsap.set(".wheel-detail", { opacity: 0, scale: 0.3, transformBox: "fill-box", transformOrigin: "center" });
     gsap.set(".hero-hub-ring", { opacity: 0, scale: 0.4, transformBox: "fill-box", transformOrigin: "center" });
@@ -284,6 +287,7 @@ export default function HeroSection() {
       wrapper.style.height = "auto";
       sticky.style.position = "relative";
       sticky.style.height = "100vh";
+      svg.setAttribute("viewBox", CAR_VIEW_FIT);
       gsap.set(bodyPath, { strokeDashoffset: 0, opacity: 1, stroke: "#E8FF00" });
       gsap.set(".hero-clip-inner", { yPercent: 0 });
       gsap.set(".hero-layer,.wheel-detail,.hero-hub-ring,.annotation-marker,#band-bottom", { opacity: 1, scale: 1 });
@@ -300,7 +304,6 @@ export default function HeroSection() {
         start: "top top",
         end: "bottom bottom",
         scrub: 1.8,
-        scroller: document.body,
         invalidateOnRefresh: true
       }
     });
@@ -321,12 +324,11 @@ export default function HeroSection() {
       .to(".layer-electrical", { opacity: 0.6, duration: 0.06 }, 0.16)
       .to(".layer-cooling", { opacity: 1, duration: 0.05 }, 0.17)
       .to(".isobar-layer", { opacity: 1, duration: 0.06 }, 0.2)
-      .to(".team-name-inner", { yPercent: 0, duration: 0.08, ease: "power3.out" }, 0.18)
-      .to(".season-inner", { yPercent: 0, duration: 0.08, ease: "power3.out" }, 0.22)
+      .to("#scroll-indicator", { opacity: 0, y: 10, duration: 0.08 }, 0.02)
       .to("#band-bottom", { opacity: 1, duration: 0.08 }, 0.2)
       .to(state, { intensity: 1, duration: 0.35 }, 0.2)
       .to(state, { speed: 1.35, duration: 0.18 }, 0.43)
-      .to(svg, { attr: { viewBox: narrow ? "0 0 1100 380" : "120 34 820 300" }, duration: narrow ? 0 : 0.26, ease: "power2.inOut" }, 0.55)
+      .to(svg, { attr: { viewBox: CAR_VIEW_FIT }, duration: narrow ? 0 : 0.26, ease: "power2.inOut" }, 0.55)
       .to(bodyPath, { stroke: "rgba(255,255,255,0.96)", opacity: 0.72, duration: 0.2 }, 0.56)
       .to(".tire-primary", { stroke: "rgba(255,255,255,0.76)", duration: 0.2 }, 0.56)
       .to(".hero-callout", { opacity: 1, x: 0, stagger: 0.035, duration: 0.09, ease: "power2.out" }, 0.6)
@@ -339,7 +341,6 @@ export default function HeroSection() {
       start: "bottom bottom",
       end: "+=60",
       scrub: true,
-      scroller: document.body,
       onUpdate: (self) => {
         const opacity = 1 - self.progress;
         sticky.style.opacity = String(opacity);
@@ -370,7 +371,7 @@ export default function HeroSection() {
       >
         <div
           id="band-top"
-          className="relative z-10 flex h-[20vh] flex-col items-center justify-end gap-1.5 px-4 pb-4 text-center"
+          className="relative z-10 flex shrink-0 flex-col items-center justify-center gap-1.5 px-4 pb-2 pt-24 text-center"
         >
           <div id="text-team-name" className="overflow-hidden font-display text-[clamp(28px,4vw,56px)] font-black uppercase tracking-[0.18em] text-white">
             <span className="hero-clip-inner team-name-inner inline-block">HYTECH RACING</span>
@@ -381,18 +382,41 @@ export default function HeroSection() {
               2025 SEASON&nbsp; · &nbsp;HT09&nbsp; · &nbsp;FORMULA SAE ELECTRIC
             </span>
           </div>
+          <div id="scroll-indicator" className="mt-6 flex flex-col items-center gap-2 text-[#E8FF00]">
+            <div className="font-mono text-[12px] font-semibold tracking-[0.34em] drop-shadow-[0_0_12px_rgba(232,255,0,0.85)]">
+              SCROLL
+            </div>
+            <svg width="22" height="32" viewBox="0 0 16 26" fill="none" aria-hidden className="drop-shadow-[0_0_10px_rgba(232,255,0,0.7)]">
+              {[3, 9, 15].map((y, index) => (
+                <path
+                  key={y}
+                  d={`M4 ${y} C6 ${y + 2} 8 ${y + 4} 8 ${y + 4} C8 ${y + 4} 10 ${y + 2} 12 ${y}`}
+                  stroke="#E8FF00"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  style={{ animation: "pulseGlow 1.2s ease-in-out infinite", animationDelay: `${index * 0.18}s` }}
+                />
+              ))}
+            </svg>
+          </div>
         </div>
 
-        <div id="band-mid" className="relative h-[60vh] overflow-hidden">
-          <canvas id="wind-canvas" ref={canvasRef} className="absolute inset-0 z-[1] h-full w-full" />
-          <svg
-            id="car-svg"
-            ref={svgRef}
-            className="absolute left-1/2 top-1/2 z-[2] w-[90%] max-w-[1100px] -translate-x-1/2 -translate-y-1/2"
-            viewBox="0 0 1100 380"
-            preserveAspectRatio="xMidYMid meet"
-            aria-hidden
-          >
+        <div id="band-mid" className="relative flex min-h-0 flex-1 items-center gap-4 overflow-hidden px-4 md:px-6">
+          <canvas id="wind-canvas" ref={canvasRef} className="pointer-events-none absolute inset-0 z-[1] h-full w-full" />
+          <div id="callouts-left" className="relative z-[3] hidden w-48 shrink-0 flex-col gap-4 self-start min-[1180px]:flex">
+            {CALLOUTS.filter((item) => item.side === "left").map((item) => (
+              <Callout key={item.title} title={item.title} value={item.value} />
+            ))}
+          </div>
+          <div className="relative z-[2] h-full min-h-0 min-w-0 flex-1 self-stretch">
+            <svg
+              id="car-svg"
+              ref={svgRef}
+              className="block h-full w-full origin-center scale-[1.4]"
+              viewBox={CAR_VIEW_START}
+              preserveAspectRatio="xMidYMid meet"
+              aria-hidden
+            >
             <defs>
               <style>
                 {`
@@ -484,9 +508,6 @@ export default function HeroSection() {
               </g>
               <g className="rear-wheel">
                 <Wheel cx={930} cy={270} />
-                <text x="984" y="268" fill="rgba(0,212,255,0.5)" fontSize="7" fontFamily="monospace">
-                  AMK A2370
-                </text>
               </g>
             </g>
 
@@ -517,19 +538,8 @@ export default function HeroSection() {
               <path d="M958 270 C980 270 998 266 1014 260" />
             </g>
           </svg>
-
-          <div
-            id="callouts-left"
-            className="absolute left-0 top-1/2 z-[3] hidden w-[max(0px,calc(50%-480px))] -translate-y-1/2 flex-col items-end gap-7 pr-4 min-[1100px]:flex"
-          >
-            {CALLOUTS.filter((item) => item.side === "left").map((item) => (
-              <Callout key={item.title} title={item.title} value={item.value} />
-            ))}
           </div>
-          <div
-            id="callouts-right"
-            className="absolute right-0 top-1/2 z-[3] hidden w-[max(0px,calc(50%-480px))] -translate-y-1/2 flex-col items-start gap-7 pl-4 min-[1100px]:flex"
-          >
+          <div id="callouts-right" className="relative z-[3] hidden w-48 shrink-0 flex-col gap-4 self-start min-[1180px]:flex">
             {CALLOUTS.filter((item) => item.side === "right").map((item) => (
               <Callout key={item.title} title={item.title} value={item.value} />
             ))}
@@ -554,27 +564,12 @@ export default function HeroSection() {
               </div>
             ))}
           </div>
-          <div className="hero-callout-mobile mt-1 flex max-w-full gap-2 overflow-hidden min-[1100px]:hidden">
+          <div className="hero-callout-mobile mt-1 flex max-w-full gap-2 overflow-hidden min-[1180px]:hidden">
             {CALLOUTS.slice(0, 2).map((item) => (
               <div key={item.title} className="hero-callout rounded border border-[rgba(232,255,0,0.2)] bg-white/[0.03] px-2 py-1">
                 <span className="font-mono text-[8px] tracking-[0.12em] text-[#00D4FF]">{item.title}</span>
               </div>
             ))}
-          </div>
-          <div id="scroll-indicator" className="absolute bottom-2 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1">
-            <div className="font-mono text-[8px] tracking-[0.3em] text-white/20">SCROLL</div>
-            <svg width="16" height="26" viewBox="0 0 16 26" fill="none" aria-hidden>
-              {[3, 9, 15].map((y, index) => (
-                <path
-                  key={y}
-                  d={`M4 ${y} C6 ${y + 2} 8 ${y + 4} 8 ${y + 4} C8 ${y + 4} 10 ${y + 2} 12 ${y}`}
-                  stroke="rgba(255,255,255,0.35)"
-                  strokeWidth="1.2"
-                  strokeLinecap="round"
-                  style={{ animation: "pulseGlow 1.4s ease-in-out infinite", animationDelay: `${index * 0.2}s` }}
-                />
-              ))}
-            </svg>
           </div>
         </div>
       </div>

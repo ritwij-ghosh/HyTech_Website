@@ -26,13 +26,6 @@ body {
     radial-gradient(circle at 22% 8%, rgba(214, 180, 92, 0.055), transparent 22rem),
     #08090b;
   color: #f4f1ea;
-  cursor: none;
-}
-
-button,
-a,
-[role="button"] {
-  cursor: none;
 }
 
 ::selection {
@@ -121,24 +114,6 @@ a,
   }
 }
 
-@keyframes bootSlide {
-  0%, 72% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-100%);
-  }
-}
-
-@keyframes bootFill {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -147,15 +122,5 @@ a,
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
-  }
-
-  body {
-    cursor: auto;
-  }
-
-  button,
-  a,
-  [role="button"] {
-    cursor: auto;
   }
 }

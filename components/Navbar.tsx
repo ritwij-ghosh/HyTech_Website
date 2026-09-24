@@ -1,6 +1,7 @@
 "use client";
 
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -48,10 +49,17 @@ export default function Navbar() {
         scrolled ? "border-b border-white/10 bg-background/90 backdrop-blur-xl" : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-8">
-        <Link href="#hero" className="group flex items-center gap-2 font-display text-sm font-black tracking-[0.18em]">
-          <Zap className="h-4 w-4 text-volt transition group-hover:drop-shadow-[0_0_10px_rgba(214,180,92,.65)]" />
-          HYTECH RACING
+      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 md:px-8">
+        <Link href="#hero" aria-label="HyTech Racing" className="group flex items-center">
+          <Image
+            src="/hytech-logo-wordmark.png"
+            alt="HyTech Racing"
+            width={2765}
+            height={772}
+            priority
+            className="h-[1.95rem] w-auto transition group-hover:drop-shadow-[0_0_12px_rgba(214,180,92,.55)]"
+            style={{ height: "1.95rem", width: "auto" }}
+          />
         </Link>
         <div className="hidden items-center gap-7 md:flex">
           {nav.map(([label, href]) => (
