@@ -129,35 +129,30 @@ export default function HeroSection() {
       const matrix = svg.getScreenCTM();
       if (!matrix) return;
       const box = canvas.getBoundingClientRect();
-      anchors.nose = carPoint(1184, 388, matrix, box.left, box.top);
-      anchors.frontWing = carPoint(1070, 476, matrix, box.left, box.top);
-      anchors.cockpit = carPoint(530, 216, matrix, box.left, box.top);
-      anchors.rearWing = carPoint(160, 140, matrix, box.left, box.top);
-      anchors.rearWheel = carPoint(230, 436, matrix, box.left, box.top);
+      anchors.nose = carPoint(1304, 376, matrix, box.left, box.top);
+      anchors.frontWing = carPoint(1230, 468, matrix, box.left, box.top);
+      anchors.cockpit = carPoint(660, 250, matrix, box.left, box.top);
+      anchors.rearWing = carPoint(170, 150, matrix, box.left, box.top);
+      anchors.rearWheel = carPoint(356, 406, matrix, box.left, box.top);
     };
 
     const applyDeflection = (particle: Particle) => {
-      const { nose, frontWing, cockpit, rearWing, rearWheel } = anchors;
+      const { nose, frontWing, cockpit, rearWing } = anchors;
       const intensity = state.intensity;
 
-      if (particle.x > nose.x + 10 && particle.x < nose.x + 150 && particle.y > frontWing.y - 40 && particle.y < frontWing.y + 36) {
-        particle.vy += 0.09 * intensity;
-        particle.vx *= 0.996;
-      }
-      if (particle.x > nose.x - 36 && particle.x < nose.x + 24 && particle.y > nose.y - 48 && particle.y < nose.y + 36) {
-        particle.vy += (particle.y < nose.y ? -0.18 : 0.18) * intensity;
-        particle.vx *= 1.01;
-      }
-      if (particle.x > cockpit.x - 80 && particle.x < cockpit.x + 40 && particle.y > cockpit.y - 16 && particle.y < cockpit.y + 80) {
-        particle.vy += Math.sin(frame / 8 + particle.x * 0.012) * 0.12 * intensity;
-        if (Math.random() < 1 / 48) particle.vy += (Math.random() - 0.5) * 5 * intensity;
-      }
-      if (particle.x > rearWheel.x - 20 && particle.x < rearWheel.x + 90 && particle.y > rearWheel.y - 24 && particle.y < rearWheel.y + 36) {
-        particle.vy -= 0.22 * intensity;
+      if (particle.x > nose.x - 20 && particle.x < nose.x + 110 && particle.y > nose.y - 40 && particle.y < nose.y + 48) {
+        particle.vy += (particle.y < nose.y ? -0.16 : 0.16) * intensity;
         particle.vx *= 1.008;
       }
-      if (particle.x < rearWing.x - 6 && particle.x > rearWing.x - 240 && particle.y > rearWing.y - 70 && particle.y < rearWing.y + 110) {
-        particle.vy += Math.sin(frame / 8) * 0.16 * intensity;
+      if (particle.x > frontWing.x - 80 && particle.x < frontWing.x + 140 && particle.y > frontWing.y - 24 && particle.y < frontWing.y + 28) {
+        particle.vy += 0.1 * intensity;
+        particle.vx *= 0.996;
+      }
+      if (particle.x > cockpit.x - 50 && particle.x < cockpit.x + 150 && particle.y > cockpit.y - 24 && particle.y < cockpit.y + 100) {
+        particle.vy += Math.sin(frame / 8 + particle.x * 0.012) * 0.1 * intensity;
+      }
+      if (particle.x > rearWing.x - 30 && particle.x < rearWing.x + 200 && particle.y > rearWing.y - 20 && particle.y < rearWing.y + 180) {
+        particle.vy -= 0.14 * intensity;
         if (Math.random() < 0.04) particle.colorType = 1;
       }
 
@@ -339,48 +334,57 @@ export default function HeroSection() {
             <svg
               ref={svgRef}
               className="hero-car block h-full w-full"
-              viewBox="20 16 1180 530"
+              viewBox="0 0 1360 520"
               fill="none"
               role="img"
               aria-label="HyTech HT09"
             >
-              <g strokeLinecap="round" strokeLinejoin="round">
-                <path className="car-stroke car-body" stroke="rgba(244,241,234,0.14)" strokeWidth="1" vectorEffect="non-scaling-stroke" d="M40 528 H1180" />
-                <path className="car-stroke car-body" stroke="#F4F1EA" strokeWidth="1.4" vectorEffect="non-scaling-stroke" d="M390 308 C520 286, 640 258, 740 246 C830 236, 940 280, 1040 332 C1100 358, 1140 372, 1162 376" />
-                <path className="car-stroke car-body" stroke="#F4F1EA" strokeWidth="1.25" vectorEffect="non-scaling-stroke" d="M1162 376 C1176 376, 1186 384, 1184 394 C1182 404, 1162 406, 1142 400 C1122 394, 1108 384, 1102 376" />
-                <path className="car-stroke car-body" stroke="#F4F1EA" strokeWidth="1.35" vectorEffect="non-scaling-stroke" d="M390 308 C376 370, 360 430, 388 472 C420 506, 520 520, 630 514 C730 508, 810 492, 852 476" />
-                <path className="car-stroke car-body" stroke="#F4F1EA" strokeWidth="1.05" vectorEffect="non-scaling-stroke" d="M430 412 C540 436, 650 436, 746 416" />
+              <g strokeLinecap="butt" strokeLinejoin="miter">
+                <path className="car-stroke car-body" stroke="rgba(244,241,234,0.14)" strokeWidth="1" vectorEffect="non-scaling-stroke" d="M36 494 H1324" />
+                <path className="car-stroke car-body" stroke="#F4F1EA" strokeWidth="1.2" vectorEffect="non-scaling-stroke" d="M452 348 L548 356" />
+                <path className="car-stroke car-body" stroke="#F4F1EA" strokeWidth="1.2" vectorEffect="non-scaling-stroke" d="M536 358 L522 412" />
+                <path className="car-stroke car-body" stroke="#F4F1EA" strokeWidth="1.2" vectorEffect="non-scaling-stroke" d="M772 342 L786 408" />
+                <path className="car-stroke car-body" stroke="#F4F1EA" strokeWidth="1.35" vectorEffect="non-scaling-stroke" d="M772 334 C910 306, 1048 298, 1170 326 C1226 342, 1270 360, 1304 376" />
+                <path className="car-stroke car-body" stroke="#F4F1EA" strokeWidth="1.25" vectorEffect="non-scaling-stroke" d="M1304 376 C1278 396, 1226 422, 1162 438" />
+                <path className="car-stroke car-body" stroke="#F4F1EA" strokeWidth="1.15" vectorEffect="non-scaling-stroke" d="M786 360 L948 348" />
+                <path className="car-stroke car-body" stroke="#F4F1EA" strokeWidth="1.1" vectorEffect="non-scaling-stroke" d="M860 382 L948 374" />
+                <path className="car-stroke car-body" stroke="#F4F1EA" strokeWidth="1.15" vectorEffect="non-scaling-stroke" d="M900 326 L886 422" />
+                <path className="car-stroke car-body" stroke="#F4F1EA" strokeWidth="1.25" vectorEffect="non-scaling-stroke" d="M946 434 C810 456, 670 450, 534 430" />
 
-                <path className="car-stroke car-cockpit" stroke="#F4F1EA" strokeWidth="1.2" vectorEffect="non-scaling-stroke" d="M432 300 C460 238, 530 208, 568 216 C582 222, 586 246, 584 266" />
-                <path className="car-stroke car-cockpit" stroke="#F4F1EA" strokeWidth="1.05" vectorEffect="non-scaling-stroke" d="M478 292 C522 258, 560 252, 578 264" />
+                <path className="car-stroke car-cockpit" stroke="#F4F1EA" strokeWidth="1.2" vectorEffect="non-scaling-stroke" d="M492 354 C480 276, 508 198, 552 188 C560 240, 552 308, 544 354" />
+                <path className="car-stroke car-cockpit" stroke="#F4F1EA" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" d="M572 310 C564 248, 592 184, 654 174 C710 164, 748 196, 752 250 C756 294, 732 332, 686 344 C640 356, 596 334, 576 312 C568 300, 572 314, 572 310" />
+                <path className="car-stroke car-cockpit" stroke="#F4F1EA" strokeWidth="1.15" strokeLinecap="round" vectorEffect="non-scaling-stroke" d="M692 206 C722 220, 730 256, 704 284" />
+                <path className="car-stroke car-cockpit" stroke="#F4F1EA" strokeWidth="1.05" strokeLinecap="round" vectorEffect="non-scaling-stroke" d="M678 236 C708 248, 714 270, 692 286" />
+                <path className="car-stroke car-cockpit" stroke="#F4F1EA" strokeWidth="1.05" strokeLinecap="round" vectorEffect="non-scaling-stroke" d="M588 324 L570 372" />
+                <path className="car-stroke car-cockpit" stroke="#F4F1EA" strokeWidth="1.05" strokeLinecap="round" vectorEffect="non-scaling-stroke" d="M646 346 L660 376" />
+                <path className="car-stroke car-cockpit" stroke="#F4F1EA" strokeWidth="1.15" strokeLinecap="round" vectorEffect="non-scaling-stroke" d="M548 380 C612 356, 690 354, 742 374" />
+                <path className="car-stroke car-cockpit" stroke="#F4F1EA" strokeWidth="1.1" strokeLinecap="round" vectorEffect="non-scaling-stroke" d="M720 366 C768 352, 810 360, 844 378" />
 
-                <path className="car-stroke car-wing" stroke="#F4F1EA" strokeWidth="1.3" vectorEffect="non-scaling-stroke" d="M62 230 C54 180, 56 108, 72 60 C84 38, 128 26, 184 28 C228 30, 256 42, 266 66 C274 104, 270 168, 256 212 C246 238, 206 252, 156 250 C108 248, 74 246, 62 230 Z" />
-                <path className="car-stroke car-wing" stroke="#F4F1EA" strokeWidth="1.15" vectorEffect="non-scaling-stroke" d="M108 86 C158 72, 198 70, 230 82" />
-                <path className="car-stroke car-wing" stroke="#F4F1EA" strokeWidth="1.15" vectorEffect="non-scaling-stroke" d="M102 122 C158 106, 202 104, 234 116" />
-                <path className="car-stroke car-wing" stroke="#F4F1EA" strokeWidth="1.15" vectorEffect="non-scaling-stroke" d="M98 158 C154 144, 196 142, 224 154" />
-                <path className="car-stroke car-wing" stroke="#F4F1EA" strokeWidth="1.2" vectorEffect="non-scaling-stroke" d="M990 472 Q1070 454 1148 466" />
-                <path className="car-stroke car-wing" stroke="#F4F1EA" strokeWidth="1.2" vectorEffect="non-scaling-stroke" d="M998 492 Q1078 476 1152 486" />
-                <path className="car-stroke car-wing" stroke="#F4F1EA" strokeWidth="1.2" vectorEffect="non-scaling-stroke" d="M1166 442 C1186 438, 1198 454, 1196 478 C1194 502, 1178 516, 1158 510 C1142 504, 1136 486, 1146 464 C1154 446, 1158 442, 1166 442 Z" />
-                <path className="car-stroke car-wing" stroke="rgba(244,241,234,0.62)" strokeWidth="1" vectorEffect="non-scaling-stroke" d="M1056 338 C1064 382, 1066 426, 1070 462" />
-                <path className="car-stroke car-wing" stroke="rgba(244,241,234,0.62)" strokeWidth="1" vectorEffect="non-scaling-stroke" d="M1102 376 C1106 406, 1108 436, 1110 462" />
+                <path className="car-stroke car-wing" stroke="#F4F1EA" strokeWidth="1.3" vectorEffect="non-scaling-stroke" d="M332 314 C318 216, 262 94, 176 68 C112 48, 58 74, 48 130 L44 270 C48 320, 108 350, 192 344 C260 338, 312 330, 332 314" />
+                <path className="car-stroke car-wing" stroke="#F4F1EA" strokeWidth="1.1" vectorEffect="non-scaling-stroke" d="M286 148 C206 130, 136 140, 92 166" />
+                <path className="car-stroke car-wing" stroke="#F4F1EA" strokeWidth="1.1" vectorEffect="non-scaling-stroke" d="M298 196 C214 178, 140 190, 98 216" />
+                <path className="car-stroke car-wing" stroke="#F4F1EA" strokeWidth="1.05" vectorEffect="non-scaling-stroke" d="M300 248 L452 262" />
+                <path className="car-stroke car-wing" stroke="#F4F1EA" strokeWidth="1.05" vectorEffect="non-scaling-stroke" d="M326 308 L452 338" />
+                <path className="car-stroke car-wing" stroke="#F4F1EA" strokeWidth="1.15" vectorEffect="non-scaling-stroke" d="M452 248 L452 352" />
+                <path className="car-stroke car-wing" stroke="#F4F1EA" strokeWidth="1.2" vectorEffect="non-scaling-stroke" d="M1164 452 C1228 438, 1288 442, 1332 460" />
+                <path className="car-stroke car-wing" stroke="#F4F1EA" strokeWidth="1.2" vectorEffect="non-scaling-stroke" d="M1172 470 C1236 458, 1294 462, 1336 478" />
+                <path className="car-stroke car-wing" stroke="#F4F1EA" strokeWidth="1.2" vectorEffect="non-scaling-stroke" d="M1320 434 L1348 430 L1356 496 L1328 500 Z" />
+                <path className="car-stroke car-wing" stroke="rgba(244,241,234,0.6)" strokeWidth="1" vectorEffect="non-scaling-stroke" d="M1206 404 L1218 448" />
 
-                <circle className="car-stroke car-wheel" cx="230" cy="436" r="92" stroke="#F4F1EA" strokeWidth="1.3" vectorEffect="non-scaling-stroke" />
-                <circle className="car-stroke car-wheel" cx="230" cy="436" r="58" stroke="#F4F1EA" strokeWidth="0.95" vectorEffect="non-scaling-stroke" />
-                <circle className="car-stroke car-wheel" cx="848" cy="440" r="88" stroke="#F4F1EA" strokeWidth="1.3" vectorEffect="non-scaling-stroke" />
-                <circle className="car-stroke car-wheel" cx="848" cy="440" r="56" stroke="#F4F1EA" strokeWidth="0.95" vectorEffect="non-scaling-stroke" />
+                <circle className="car-stroke car-wheel" cx="356" cy="406" r="82" stroke="#F4F1EA" strokeWidth="1.3" vectorEffect="non-scaling-stroke" />
+                <circle className="car-stroke car-wheel" cx="356" cy="406" r="52" stroke="#F4F1EA" strokeWidth="0.95" vectorEffect="non-scaling-stroke" />
+                <path className="car-stroke car-wheel" stroke="#F4F1EA" strokeWidth="0.9" vectorEffect="non-scaling-stroke" d="M356 368 V394 M356 418 V444 M318 406 H342 M370 406 H394" />
+                <circle className="car-stroke car-wheel" cx="1042" cy="404" r="80" stroke="#F4F1EA" strokeWidth="1.3" vectorEffect="non-scaling-stroke" />
+                <circle className="car-stroke car-wheel" cx="1042" cy="404" r="50" stroke="#F4F1EA" strokeWidth="0.95" vectorEffect="non-scaling-stroke" />
+                <path className="car-stroke car-wheel" stroke="#F4F1EA" strokeWidth="0.9" vectorEffect="non-scaling-stroke" d="M1042 368 V392 M1042 416 V440 M1006 404 H1028 M1056 404 H1078" />
 
-                <path className="car-stroke car-susp" stroke="rgba(244,241,234,0.42)" strokeWidth="0.95" vectorEffect="non-scaling-stroke" d="M252 228 C310 256, 358 286, 390 308" />
-                <path className="car-stroke car-susp" stroke="rgba(244,241,234,0.42)" strokeWidth="0.95" vectorEffect="non-scaling-stroke" d="M268 248 C302 288, 334 326, 360 360" />
-                <path className="car-stroke car-susp" stroke="rgba(244,241,234,0.42)" strokeWidth="0.95" vectorEffect="non-scaling-stroke" d="M360 352 C346 360, 334 366, 324 372" />
-                <path className="car-stroke car-susp" stroke="rgba(244,241,234,0.42)" strokeWidth="0.95" vectorEffect="non-scaling-stroke" d="M368 452 C350 456, 336 454, 322 450" />
-                <path className="car-stroke car-susp" stroke="rgba(244,241,234,0.42)" strokeWidth="0.95" vectorEffect="non-scaling-stroke" d="M700 348 C722 356, 744 368, 762 382" />
-                <path className="car-stroke car-susp" stroke="rgba(244,241,234,0.42)" strokeWidth="0.95" vectorEffect="non-scaling-stroke" d="M690 456 C718 460, 742 456, 762 450" />
+                <path className="car-stroke car-susp" stroke="rgba(244,241,234,0.45)" strokeWidth="0.95" vectorEffect="non-scaling-stroke" d="M474 336 L434 364" />
+                <path className="car-stroke car-susp" stroke="rgba(244,241,234,0.45)" strokeWidth="0.95" vectorEffect="non-scaling-stroke" d="M508 436 L446 424" />
+                <path className="car-stroke car-susp" stroke="rgba(244,241,234,0.45)" strokeWidth="0.95" vectorEffect="non-scaling-stroke" d="M902 322 L966 360" />
+                <path className="car-stroke car-susp" stroke="rgba(244,241,234,0.45)" strokeWidth="0.95" vectorEffect="non-scaling-stroke" d="M870 436 L960 426" />
 
-                <path className="car-stroke car-accent" stroke="#E8FF00" strokeWidth="1.4" vectorEffect="non-scaling-stroke" d="M440 358 C540 380, 640 398, 736 406" />
+                <path className="car-stroke car-accent" stroke="#E8FF00" strokeWidth="1.2" vectorEffect="non-scaling-stroke" d="M548 410 C700 424, 840 418, 944 400" />
               </g>
-              <text className="car-num" x="100" y="210" fill="#F4F1EA" opacity="0" fontSize="40" fontWeight="500" letterSpacing="3" fontFamily="var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif">
-                210
-              </text>
             </svg>
           </div>
           <div id="callouts-right" className="relative z-[3] hidden w-48 shrink-0 flex-col gap-4 self-start min-[1180px]:flex">
