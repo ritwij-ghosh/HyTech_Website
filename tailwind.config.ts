@@ -18,9 +18,9 @@ const config: Config = {
         muted: "#96948B"
       },
       fontFamily: {
-        display: ["var(--font-space-grotesk)", "Orbitron", "sans-serif"],
-        sans: ["var(--font-inter)", "Inter", "sans-serif"],
-        mono: ["var(--font-ibm-plex-mono)", "IBM Plex Mono", "monospace"]
+        display: ["var(--font-space-grotesk, ui-sans-serif)", "system-ui", "sans-serif"],
+        sans: ["var(--font-inter, ui-sans-serif)", "system-ui", "sans-serif"],
+        mono: ["var(--font-ibm-plex-mono, ui-monospace)", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"]
       },
       boxShadow: {
         volt: "0 0 24px rgba(214, 180, 92, 0.24)",

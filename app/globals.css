@@ -16,6 +16,7 @@
 html {
   scroll-behavior: auto;
   background: var(--background);
+  font-family: var(--font-inter, ui-sans-serif), system-ui, sans-serif;
 }
 
 body {
@@ -114,6 +115,23 @@ body {
   }
 }
 
+.font-display {
+  font-family: var(--font-space-grotesk, ui-sans-serif), system-ui, sans-serif;
+}
+
+.font-sans {
+  font-family: var(--font-inter, ui-sans-serif), system-ui, sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-ibm-plex-mono, ui-monospace), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.hero-car .car-stroke {
+  stroke-dasharray: 2400;
+  stroke-dashoffset: 2400;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -122,5 +140,10 @@ body {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .hero-car .car-stroke {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
   }
 }
