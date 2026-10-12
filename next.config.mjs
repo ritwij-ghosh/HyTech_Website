@@ -7,7 +7,9 @@ const nextConfig = {
         hostname: "hytechracing.gatech.edu",
         pathname: "/images/**"
       }
-    ]
+    ],
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;"
   }
 };
 

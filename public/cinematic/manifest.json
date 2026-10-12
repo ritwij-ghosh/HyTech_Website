@@ -1,0 +1,14 @@
+{
+  "frames": 240,
+  "fps": 24,
+  "durationSeconds": 10,
+  "desktop": {
+    "width": 1440,
+    "height": 810
+  },
+  "mobile": {
+    "width": 576,
+    "height": 1152
+  },
+  "source": "Photo-guided artistic reconstruction of the supplied HyTech #204 reference"
+}

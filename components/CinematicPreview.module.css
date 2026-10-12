@@ -1,0 +1,62 @@
+.sequence { position: relative; height: 600svh; background: #08090b; }
+.stage { position: sticky; top: 0; height: 100svh; overflow: hidden; isolation: isolate; }
+.shot { position: absolute; inset: 0; margin: 0; opacity: 0; background: #08090b; }
+.shot:first-child { opacity: 1; }
+.shot img { width: 100%; height: 100%; object-fit: cover; }
+.shot figcaption { display: none; }
+.shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, #05070a78, transparent 37%, transparent 74%, #05070aab); }
+.intro, .engineering, .outro { position: absolute; left: max(5.5vw,24px); right: 5.5vw; z-index: 2; }
+.intro { top: max(106px,12%); }
+.eyebrow { color: #cab988; font-family: var(--font-ibm-plex-mono),monospace; font-size: 9px; letter-spacing: .18em; }
+.intro h1 { margin: 15px 0 0; color: #f4f1ea; font-family: var(--font-space-grotesk),sans-serif; font-size: clamp(45px,5.6vw,90px); font-weight: 500; letter-spacing: -.065em; line-height: 1; }
+.intro em, .engineering em, .outro em { color: #c5ad75; font-style: normal; }
+.subline { display: none; color: #c7c6c0; font-size: 12px; margin-top: 18px; }
+.engineering { top: max(118px,17%); opacity: 0; visibility: hidden; }
+.engineering > p:last-child { margin-top: 14px; color: #f4f1ea; font-size: clamp(28px,3vw,48px); line-height: 1.08; letter-spacing: -.045em; }
+.outro { top: 25%; opacity: 0; visibility: hidden; }
+.outro h2 { margin-top: 20px; font-size: clamp(44px,4.5vw,76px); line-height: .98; letter-spacing: -.06em; }
+.outro a { display: inline-flex; align-items: center; gap: 28px; padding-bottom: 12px; margin-top: 28px; border-bottom: 1px solid #c5ad7570; font-size: 12px; }
+.controls { position: absolute; bottom: 30px; left: max(5.5vw,24px); right: max(5.5vw,24px); display: flex; align-items: center; justify-content: space-between; gap: 20px; color: #d8d4ca; }
+.studyLabel, .skip, .chapters { font-family: var(--font-ibm-plex-mono),monospace; font-size: 9px; letter-spacing: .1em; }
+.studyLabel { display: grid; gap: 7px; color: #c5ad75; }
+.studyLabel > span { font-size: 8px; color: #aba89f; letter-spacing: .05em; }
+.chapters { display: flex; gap: 16px; }
+.chapters button { display: flex; align-items: center; gap: 9px; min-height: 44px; padding: 8px 4px; color: #9d9d98; }
+.chapters button[aria-pressed="true"] { color: #d8c083; }
+.chapters b { display: none; font-weight: 400; text-transform: uppercase; }
+.chapters button[aria-pressed="true"] b { display: inline; }
+.skip { display: flex; align-items: center; min-height: 44px; gap: 12px; }
+.controls button:focus-visible, .controls a:focus-visible, .outro a:focus-visible { outline: 2px solid #d8c083; outline-offset: 5px; }
+.rail { position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: #ffffff15; }
+.rail span { display: block; width: 100%; height: 100%; background: #c5ad75; transform: scaleX(0); transform-origin: left; }
+@media (max-width: 767px) {
+  .sequence { height: 480svh; }
+  .shot img { object-fit: contain; }
+  .intro { top: 18%; }
+  .intro h1 { max-width: 480px; font-size: clamp(42px,10.5vw,72px); }
+  .intro em { display: block; }
+  .eyebrow { font-size: 7px; letter-spacing: .13em; }
+  .subline { display: block; font-size: 10px; margin-top: 15px; }
+  .engineering { top: 20%; }
+  .outro { top: 19%; }
+  .outro h2 { font-size: 44px; }
+  .outro a { font-size: 11px; margin-top: 17px; }
+  .controls { flex-wrap: wrap; bottom: 20px; gap: 8px; }
+  .chapters { position: absolute; bottom: 62px; left: 0; right: 0; justify-content: space-between; }
+  .chapters button { gap: 8px; }
+  .skip { font-size: 8px; }
+}
+@media (max-height: 600px) and (min-width: 768px) {
+  .intro { top: 100px; }
+  .intro h1 { font-size: 48px; }
+  .subline { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sequence { height: auto; }
+  .stage { position: relative; height: auto; padding-top: 310px; }
+  .shot { position: relative; opacity: 1; aspect-ratio: 16/9; }
+  .shot img { object-fit: contain; }
+  .shot figcaption { display: block; position: absolute; bottom: 12px; left: 24px; padding: 5px 10px; background: #08090bcc; font-size: 10px; }
+  .intro { top: 124px; }
+  .shade, .engineering, .outro, .controls, .rail { display: none; }
+}

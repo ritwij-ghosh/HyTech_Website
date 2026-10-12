@@ -1,0 +1,237 @@
+[
+  {
+    "tier": "Champion",
+    "sponsors": [
+      {
+        "name": "SGA",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/SGA Logo.jpg",
+        "href": "https://sga.gatech.edu"
+      },
+      {
+        "name": "Altium",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Altium Logo.png",
+        "href": "https://www.altium.com"
+      },
+      {
+        "name": "RAMSIS",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/RAMSIS Logo.png",
+        "href": "https://www.human-solutions.com/en/ramsis/"
+      },
+      {
+        "name": "GTSF",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/GTSF Logo.webp",
+        "href": "https://gtsf.gatech.edu"
+      },
+      {
+        "name": "ClassOne",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/ClassOne Logo.jpg",
+        "href": "https://classone.com/"
+      },
+      {
+        "name": "Garrett Motion",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Garrett Motion Logo.jpg",
+        "href": "https://www.garrettmotion.com"
+      },
+      {
+        "name": "KissSoft",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/KissSoft Logo.png",
+        "href": "https://www.kisssoft.com"
+      },
+      {
+        "name": "Dassault",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Dassault Logo.png",
+        "href": "https://www.3ds.com"
+      },
+      {
+        "name": "Melasta",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Melasta Logo.png",
+        "href": "https://www.melasta.com"
+      },
+      {
+        "name": "Tractian",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Tractian Logo.webp",
+        "href": "https://www.tractian.com"
+      },
+      {
+        "name": "John Deere",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/John Deere Logo.jpg",
+        "href": "https://www.deere.com"
+      },
+      {
+        "name": "GM",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/GM Logo.png",
+        "href": "https://www.gm.com"
+      },
+      {
+        "name": "Monster",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Monster Logo.png",
+        "href": "https://www.monsterenergy.com"
+      },
+      {
+        "name": "VectorNav",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/VectorNav Logo.jpg",
+        "href": "https://www.vectornav.com"
+      },
+      {
+        "name": "AMK",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/AMK Logo.jpg",
+        "href": "https://www.amk-motion.com/en/"
+      },
+      {
+        "name": "RVTech",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/RVTechSmaller.jpg",
+        "href": "https://rivianvw.tech/"
+      }
+    ]
+  },
+  {
+    "tier": "Podium",
+    "sponsors": [
+      {
+        "name": "Hakko USA",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Hakko USA Logo.png",
+        "href": "https://www.hakkousa.com"
+      },
+      {
+        "name": "Delta Tech Ops",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Delta Tech Ops Logo.jpg",
+        "href": "https://www.deltatechops.com"
+      },
+      {
+        "name": "Clean Energy Strategies",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Clean Energy Strategies Logo.jpg",
+        "href": "https://www.cleanenergystrategies.net/"
+      },
+      {
+        "name": "Khosla Ventures",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Khosla Ventures Logo.png",
+        "href": "https://www.khoslaventures.com"
+      },
+      {
+        "name": "Edmund Optics",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2027/Edmund Optics logo.png",
+        "href": "https://www.edmundoptics.com/"
+      }
+    ]
+  },
+  {
+    "tier": "Trackside",
+    "sponsors": [
+      {
+        "name": "Saertex",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Saertex Logo.jpg",
+        "href": "https://www.saertex.com"
+      },
+      {
+        "name": "Phoenix Contact",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Phoenix Contact Logo.png",
+        "href": "https://www.phoenixcontact.com"
+      },
+      {
+        "name": "RapidHarness",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/RapidHarness Logo.png",
+        "href": "https://www.rapidharness.com"
+      },
+      {
+        "name": "Analog Devices",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Analog Devices Logo.jpg",
+        "href": "https://www.analog.com"
+      },
+      {
+        "name": "Molex",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Molex Logo.png",
+        "href": "https://www.molex.com"
+      },
+      {
+        "name": "Digikey",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Digikey Logo.png",
+        "href": "https://www.digikey.com"
+      },
+      {
+        "name": "TE Connectivity",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/TE Connectivity.jpg",
+        "href": "https://www.te.com"
+      },
+      {
+        "name": "Milwaukee",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Milwaukee Logo.png",
+        "href": "https://www.milwaukeetool.com"
+      },
+      {
+        "name": "Tesla",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Tesla Logo.jpg",
+        "href": "https://www.tesla.com"
+      },
+      {
+        "name": "Harwin",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Harwin Logo.svg",
+        "href": "https://www.harwin.com"
+      },
+      {
+        "name": "Tektronics",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Tektronics Logo.svg",
+        "href": "https://www.tek.com"
+      },
+      {
+        "name": "SKF",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/SKF Logo.svg",
+        "href": "https://www.skf.com"
+      },
+      {
+        "name": "TSMC",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/TSMC Logo.png",
+        "href": "https://www.tsmc.com"
+      },
+      {
+        "name": "MoTeC",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/MoTeC Logo.png",
+        "href": "https://www.motec.com.au"
+      },
+      {
+        "name": "Swift Atlanta",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Swift Atlanta Logo.png",
+        "href": "https://www.swiftatlanta.com"
+      }
+    ]
+  },
+  {
+    "tier": "Paddock",
+    "sponsors": [
+      {
+        "name": "Extreme Bolt Fastener",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2026/Extreme Bolt Fastener Logo.png",
+        "href": "https://www.extreme-bolt.com"
+      },
+      {
+        "name": "Extreme Canopy",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/Extreme Canopy.png",
+        "href": "https://www.extremecanopy.com/"
+      },
+      {
+        "name": "bgfIndustries",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2027/bgfIndustries_white.png",
+        "href": "https://bgf.com/"
+      },
+      {
+        "name": "Mach Industries",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2027/Mach Industries.png",
+        "href": "https://machindustries.com/"
+      },
+      {
+        "name": "Planet",
+        "logo": "https://hytechracing.gatech.edu/images/sponsors/2027/Planet.png",
+        "href": "https://planetechusa.com/"
+      },
+      {
+        "name": "Li Family",
+        "logo": null,
+        "href": null
+      },
+      {
+        "name": "Hanson Family",
+        "logo": null,
+        "href": null
+      }
+    ]
+  }
+]

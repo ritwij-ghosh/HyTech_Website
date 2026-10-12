@@ -1,0 +1,1273 @@
+[
+  {
+    "year": "2025",
+    "code": "HT09",
+    "blocks": [
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2025/endurance.png",
+        "alt": "HT09 car on track in FSAE 2025",
+        "caption": "HT09 on the track at Formula SAE 2025"
+      },
+      {
+        "type": "heading",
+        "text": "Engineering Summary"
+      },
+      {
+        "type": "paragraph",
+        "text": "For the 2024/25 season, HyTech Racing continued to push engineering innovations with several major design changes to HT09. All engineering decisions were made with a strong vehicle dynamics justification behind them.",
+        "links": []
+      },
+      {
+        "type": "paragraph",
+        "text": "The most visually obvious change made to HT09 was switching from quad in-hub motors to quad in-wheel motors. By moving the motors and cooling jackets inside the wheel rims, the aerodynamics of the car drastically improved. Moving the motors inside the wheels required creative cooling methods.",
+        "links": []
+      },
+      {
+        "type": "paragraph",
+        "text": "Electrically, the car completely changed from its predecessor. Simplification and potential for iteration were the main goals when switching to only having two main circuit boards. The new electrical system can be built upon for autonomous racing.",
+        "links": []
+      },
+      {
+        "type": "paragraph",
+        "text": "Huge changes in technical regulations required a complete redesign of the rear section of the chassis. Repackaging the rear suspension and electrical systems while optimizing mass posed a challenging engineering problem that was solved with a variety of structural analyses.",
+        "links": []
+      },
+      {
+        "type": "paragraph",
+        "text": "HT09 also included our first full aerodynamic undertray and diffuser. Learning from HT08 testing, HT09 took advantage of low-hanging fruit to increase downforce without increasing drag.",
+        "links": []
+      },
+      {
+        "type": "heading",
+        "text": "Results"
+      },
+      {
+        "type": "paragraph",
+        "text": "HT09 achieved our joint-best every finish (3rd) at FSAE-EV in Michigan. Finishing in the top 6 in every dynamic event is a testament to the performance of the car. Additionally, the team made design finalists (2nd overall) for the first time, largely thanks to the integration of all subsystems to the greater goals of the car.",
+        "links": []
+      },
+      {
+        "type": "details",
+        "title": "HT09 Vehicle Details",
+        "groups": [
+          {
+            "label": "Vehicle Mass",
+            "items": [
+              "414.91 lb / 188.2 kg (measured)"
+            ]
+          },
+          {
+            "label": "Vehicle Dimensions",
+            "items": [
+              "Wheelbase: 1535 mm",
+              "Track Width: 1200 mm"
+            ]
+          },
+          {
+            "label": "Performance Envelope",
+            "items": [
+              "Longitudinal: 1.15g (measured)",
+              "Lateral: 1.8g (measured)"
+            ]
+          },
+          {
+            "label": "Suspension",
+            "items": [
+              "Quad-push rod double wishbone"
+            ]
+          },
+          {
+            "label": "Powertrain",
+            "items": [
+              "4x AMK A2370DD Motors, KW26-S5-FSE-4Q Inverter",
+              "20,000 RPM, 21 Nm, 33 kW Peak",
+              "In Wheel Motors",
+              "77 mph top speed (simulated)"
+            ]
+          },
+          {
+            "label": "Accumulator",
+            "items": [
+              "530 V, 6.3 kWh, 80 kW Peak",
+              "Custom LCO Pouch Cells"
+            ]
+          },
+          {
+            "label": "Aero Elements",
+            "items": [
+              "Compound Curvature Carbon Fiber",
+              "4.22 CI*A (simulated)",
+              "1.42 Cd*A (simulated)"
+            ]
+          },
+          {
+            "label": "Sensor Suite",
+            "items": [
+              "30 Custom Analog Sensors, 7 SPI Signals, 28 Inverter Monitored Signals",
+              "Ethernet Capable"
+            ]
+          },
+          {
+            "label": "Battery Monitoring",
+            "items": [
+              "Custom LTC 6811 BMS with 126 Cell Voltages, 72 Temperatures"
+            ]
+          },
+          {
+            "label": "Gearbox",
+            "items": [
+              "11.83:1 Reduction"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2023/2023_HT07_Front_Aero.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2023/2023_HT07_Gearbox.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2023/2023_HT07_Pedal_Box.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2023/2023_HT07_Front_Packaging.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2023/2023_HT07_Accumulator_Stack.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2023/2023_HT07_Rear_Motor.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      }
+    ]
+  },
+  {
+    "year": "2024",
+    "code": "HT08",
+    "blocks": [
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2024/210.jpg",
+        "alt": "HT08 car on track in FSAE 2024",
+        "caption": "HT08 on the track at Formula SAE 2024"
+      },
+      {
+        "type": "heading",
+        "text": "Engineering Summary"
+      },
+      {
+        "type": "paragraph",
+        "text": "Our 2023-2024 car, HT08, was largely a development upon the successful HT07. Notable design changes include transitioning to lightweight air shock suspension dampers, a more refined torque vectoring system, and a sharp focus on mass savings.",
+        "links": []
+      },
+      {
+        "type": "paragraph",
+        "text": "One main goal of HT08 was to finish manufacturing early enough to have ample testing of the car. Large amounts of data from load cells and various other sensors allowed the team to refine software on the car.",
+        "links": []
+      },
+      {
+        "type": "paragraph",
+        "text": "HT08 also featured a brand-new cooling system for the inverters. This drastically improved the efficiency of our high voltage system.",
+        "links": []
+      },
+      {
+        "type": "paragraph",
+        "text": "Another focus of HT08 was live data acquisition. A new telemetry system allowed for live feedback from the car, allowing the team to make informed decisions during operation of the car.",
+        "links": []
+      },
+      {
+        "type": "paragraph",
+        "text": "Lastly, through a combined effort of the team, relative to its predecessor, HT08 reduced mass by 10kg. This was a huge accomplishment and was a main reason behind the car’s success.",
+        "links": []
+      },
+      {
+        "type": "heading",
+        "text": "Results"
+      },
+      {
+        "type": "paragraph",
+        "text": "HT08 showed blistering pace at all dynamic events, sweeping the Friday acceleration, skidpad, and autocross events. We also finished the endurance event for the first time in 4 years. The team finished 4th overall, bringing home a host of trophies.",
+        "links": []
+      },
+      {
+        "type": "details",
+        "title": "HT08 Vehicle Details",
+        "groups": [
+          {
+            "label": "Vehicle Mass",
+            "items": [
+              "410.04 lb / 185.99 kg (measured)"
+            ]
+          },
+          {
+            "label": "Vehicle Dimensions",
+            "items": [
+              "Wheelbase: 1535 mm",
+              "Track Width: 1200 mm"
+            ]
+          },
+          {
+            "label": "Performance Envelope",
+            "items": [
+              "Longitudinal: 1.1g (measured)",
+              "Lateral: 1.85g (measured)"
+            ]
+          },
+          {
+            "label": "Suspension",
+            "items": [
+              "Quad-push rod double wishbone"
+            ]
+          },
+          {
+            "label": "Powertrain",
+            "items": [
+              "4x AMK A2370DD Motors, KW26-S5-FSE-4Q Inverter",
+              "20,000 RPM, 21 Nm, 33 kW Peak",
+              "In Hub Motors",
+              "76.8 mph top speed (simulated)"
+            ]
+          },
+          {
+            "label": "Accumulator",
+            "items": [
+              "530 V, 6.3 kWh, 80 kW Peak",
+              "Custom LCO Pouch Cells"
+            ]
+          },
+          {
+            "label": "Aero Elements",
+            "items": [
+              "Compound Curvature Carbon Fiber",
+              "3.07 - 3.78 CI*A (simulated)",
+              "1.00 - 1.27 Cd*A (simulated)"
+            ]
+          },
+          {
+            "label": "Sensor Suite",
+            "items": [
+              "20 Custom Analog Sensors, 7 SPI Signals, 28 Inverter Monitored Signals"
+            ]
+          },
+          {
+            "label": "Battery Monitoring",
+            "items": [
+              "Custom LTC 6811 BMS with 126 Cell Voltages, 72 Temperatures"
+            ]
+          },
+          {
+            "label": "Gearbox",
+            "items": [
+              "11.86:1 Reduction"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2023/2023_HT07_Front_Aero.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2023/2023_HT07_Gearbox.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2023/2023_HT07_Pedal_Box.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2023/2023_HT07_Front_Packaging.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2023/2023_HT07_Accumulator_Stack.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2023/2023_HT07_Rear_Motor.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      }
+    ]
+  },
+  {
+    "year": "2023",
+    "code": "HT07",
+    "blocks": [
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2023/2023_HT07_Angled.png",
+        "alt": "HT07 car on track in FSAE 2023",
+        "caption": "HT07 on the track at Formula SAE 2023"
+      },
+      {
+        "type": "heading",
+        "text": "Engineering Summary"
+      },
+      {
+        "type": "paragraph",
+        "text": "In the 2022-2023 season, HyTech Racing embarked on an exciting journey, transitioning to an all-wheel drive car that demanded significant changes to the vehicle architecture. Driven by our sophisticated vehicle simulation and an iterative approach, the team executed the design with utmost ambition and efficiency, pushing the boundaries of each critical requirement.",
+        "links": []
+      },
+      {
+        "type": "paragraph",
+        "text": "HT07 has a plethora of design improvements over its predecessors. The heart of our innovation lies in the new hub motor architecture, where a custom gearbox, crafted using cutting-edge simulation software, has yielded significant improvements to our acceleration performance.",
+        "links": []
+      },
+      {
+        "type": "paragraph",
+        "text": "One of our standout achievements was the seamless integration of the quad inverters and motors with the energy-dense accumulator, thanks to our novel cooling system. Moreover, through advanced composite structural simulation techniques, we successfully developed an aero package that is lighter, stiffer, and stronger.",
+        "links": []
+      },
+      {
+        "type": "paragraph",
+        "text": "The pursuit of performance extended beyond the vehicle's mechanics to optimize the driver's experience. An exhaustive ergonomic study and experimentally driven design iterations led us to provide our drivers with a seating and steering position that offers unmatched comfort while ensuring they are positioned at a low center of gravity for optimal performance.",
+        "links": []
+      },
+      {
+        "type": "paragraph",
+        "text": "The redesigned suspension system proved to be a game-changer, significantly enhancing the car's balance and maneuverability, enabling our drivers to confidently push the vehicle close to its theoretical limits. Tuning HT07 was a rigorous process, involving hundreds of hours of on-track testing. This allowed us to validate the structural components, fine-tune the suspension setup, test our new torque vectoring software, and validate the onboard cooling systems. With features like adjustable roll centers, configurable aero elements, and software control of powertrain parameters, our vehicle offers unparalleled on-track adaptability for achieving perfect balance and handling.",
+        "links": []
+      },
+      {
+        "type": "heading",
+        "text": "Results"
+      },
+      {
+        "type": "paragraph",
+        "text": "HT07 was our fastest car by a long shot! It broke the North American acceleration record, came 1st in skid pad, 2nd in Autocross, and made it to the design finals for consecutive years. Despite not being able to compete in endurance (due to a damaged pedal sensor) the team still managed to place 10th overall in the 2023 FSAE Michigan Electric competition.",
+        "links": []
+      },
+      {
+        "type": "details",
+        "title": "HT07 Vehicle Details",
+        "groups": [
+          {
+            "label": "Vehicle Mass",
+            "items": [
+              "430 lb / 195 kg (measured)"
+            ]
+          },
+          {
+            "label": "Vehicle Dimensions",
+            "items": [
+              "Wheelbase: 1535 mm",
+              "Track Width: 1200 mm"
+            ]
+          },
+          {
+            "label": "Performance Envelope",
+            "items": [
+              "Longitudinal: 1.0g (measured)",
+              "Lateral: 1.8g (measured)"
+            ]
+          },
+          {
+            "label": "Suspension",
+            "items": [
+              "Quad-push rod double wishbone"
+            ]
+          },
+          {
+            "label": "Powertrain",
+            "items": [
+              "4x AMK A2370DD Motors, KW26-S5-FSE-4Q Inverter",
+              "20,000 RPM, 21 Nm, 33 kW Peak",
+              "76 mph top speed (simulated)"
+            ]
+          },
+          {
+            "label": "Accumulator",
+            "items": [
+              "530 V, 6.3 kWh, 80 kW Peak",
+              "Custom LCO Pouch Cells"
+            ]
+          },
+          {
+            "label": "Aero Elements",
+            "items": [
+              "Compound Curvature Carbon Fiber",
+              "3.19 - 3.71 CI*A (simulated)",
+              "0.97 - 1.23 Cd*A (simulated)"
+            ]
+          },
+          {
+            "label": "Sensor Suite",
+            "items": [
+              "20 Custom Analog Sensors, 7 SPI Signals, 28 Inverter Monitored Signals"
+            ]
+          },
+          {
+            "label": "Battery Monitoring",
+            "items": [
+              "Custom LTC 6811 BMS with 126 Cell Voltages, 72 Temperatures"
+            ]
+          },
+          {
+            "label": "Gearbox",
+            "items": [
+              "11.86:1 Reduction"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2023/2023_HT07_Front_Aero.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2023/2023_HT07_Gearbox.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2023/2023_HT07_Pedal_Box.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2023/2023_HT07_Front_Packaging.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2023/2023_HT07_Accumulator_Stack.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2023/2023_HT07_Rear_Motor.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      }
+    ]
+  },
+  {
+    "year": "2022",
+    "code": "HT06",
+    "blocks": [
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2022/2022_FSAE_endurance_best_small.jpeg",
+        "alt": "HT06 on the Endurance Track at Formula SAE 2022",
+        "caption": "HT06 on the Endurance Track at Formula SAE 2022"
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2022/2022_FSAE_trophies_frontwing_small.jpg",
+        "alt": "HT06 Took Third Place Overall at the 2022 Competition",
+        "caption": "HT06 Took Third Place Overall at the 2022 Competition"
+      },
+      {
+        "type": "heading",
+        "text": "Engineering Summary"
+      },
+      {
+        "type": "paragraph",
+        "text": "In 2022, HyTech Racing focused efforts on building an extremely lightweight and reliable vehicle with a low center of gravity and high lateral acceleration at all parts of the circuit. This was accomplished through an iterative design process focusing on high-level performance metrics and designing to the limit of each critical requirement.",
+        "links": []
+      },
+      {
+        "type": "paragraph",
+        "text": "HT06 features many design improvements over its predecessors. A novel battery pack cooling design strategy enabled HyTech's most energy-dense and tightly packaged accumulator ever. Advanced composite structural simulation techniques led to the development of a lighter, stiffer, and stronger aero package. A complete ergonomic study and experimentally driven design iteration gave our drivers a comfortable seating and steering position while seating the driver in the lowest possible position to even further improve acceleration performance.",
+        "links": []
+      },
+      {
+        "type": "paragraph",
+        "text": "Tuning HT06 took place during hundreds of hours of on-track testing to validate structural components, dial-in suspension setup, test launch control software, and validate onboard cooling systems. An adjustable anti-roll bar, configurable aero elements, and software control of powertrain parameters allowed for quick on-track adjustment of vehicle balance and handling.",
+        "links": []
+      },
+      {
+        "type": "heading",
+        "text": "Results"
+      },
+      {
+        "type": "paragraph",
+        "text": "HT06 placed 3rd overall out of 55 teams in the 2022 FSAE Michigan Electric competition. The team also received 2nd in cost, 3rd in acceleration, 3rd in skidpad, and 4th in design.",
+        "links": []
+      },
+      {
+        "type": "details",
+        "title": "HT06 Vehicle Details",
+        "groups": [
+          {
+            "label": "General",
+            "items": [
+              "Weight: 386 lb (175 kg) measured at Formula SAE"
+            ]
+          },
+          {
+            "label": "Chassis",
+            "items": [
+              "Steel tube space frame"
+            ]
+          },
+          {
+            "label": "Suspension",
+            "items": [
+              "Double unequal length wishbone",
+              "Ohlins TTX25 dampers"
+            ]
+          },
+          {
+            "label": "Powertrain",
+            "items": [
+              "Chain sprocket reduction",
+              "Clutch type limited slip differential"
+            ]
+          },
+          {
+            "label": "Electric Drive",
+            "items": [
+              "Motor: Emrax 207 Medium Voltage",
+              "Inverter: Rinehart CM200DZ",
+              "Battery: 84S1P LiCoO 2 pack with 5.6 kWh energy capacity",
+              "Peak outputs: 80 kW",
+              "Peak torque: 160 Nm"
+            ]
+          },
+          {
+            "label": "Aero Package",
+            "items": [
+              "2 element front wing",
+              "3 element rear wing",
+              "Coefficient of lift: -2.6",
+              "Coefficient of drag: 1.4"
+            ]
+          },
+          {
+            "label": "Electrical Controls",
+            "items": [
+              "Low voltage controls: Teensy 4.0 Microcontrollers that run 6x faster than previous Microcontrollers",
+              "High voltage controls: New team-built precharge and discharge controls circuitry. Clean-sheet object oriented BMS management system embedded software",
+              "Data Acquisition: Created two new PCBs to interface with various sensors, revamped parser and live telemetry console."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2022/2022_FSAE_hv_stack.jpeg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2022/2022_HT06_corners_small.jpeg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2022/2022_HT06_seat.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2022/2022_FSAE_powertrain.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2022/2022_FSAE_dashboard.jpeg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2022/2022_FSAE_AMS.jpeg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      }
+    ]
+  },
+  {
+    "year": "2021",
+    "code": "HT05",
+    "blocks": [
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2021/2021_endurance_1_small.jpg",
+        "alt": "HT05 on the Endurance Track at Formula SAE 2021",
+        "caption": "HT05 on the Endurance Track at Formula SAE 2021"
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2021/2021_trophy_small.jpg",
+        "alt": "HT05 Took Second Place at the 2021 Competition",
+        "caption": "HT05 Took Second Place at the 2021 Competition"
+      },
+      {
+        "type": "heading",
+        "text": "Engineering Summary"
+      },
+      {
+        "type": "paragraph",
+        "text": "For the 2021 competition year, our team continued our iterative design approach building on the work that was unfortunately interrupted in 2020. We continued to apply our three design principles during our design of HT05: lightness, serviceability, and robustness.",
+        "links": []
+      },
+      {
+        "type": "paragraph",
+        "text": "Our weight only increased 20 lb (9 kg) compared to our 2019 vehicle, while also adding our first ever aero package.",
+        "links": []
+      },
+      {
+        "type": "paragraph",
+        "text": "HT05 was HyTech's first vehicle to implement an aerodynamic package, which consisted of carbon fiber composite front and rear wings. This package greatly improved the cornering performance of the car and with it skidpad and autocross times dropped significantly. The team also took a new, quantitative approach to tire selection, collecting experimental data on tire heating curves and comparing critical parameters such as tire rates, cornering coefficients, and max lateral force. With this data, the team settled on the stiffer Hoosier R25Bs to meet the demands of tight-cornered FSAE tracks.",
+        "links": []
+      },
+      {
+        "type": "paragraph",
+        "text": "Our team found many ways of increasing the robustness and reliability of the new design. We worked with our sponsors to rigorously test and validate every cell in our battery pack, allowing for better cell life models. We also continued to improve our assembly process and testing process for all boards, decreasing the failure rate and time spent overall. We also spent a large part of the year testing the vehicle on track, enabling optimal tuning of the vehicle setup and vehicle software well before comp.",
+        "links": []
+      },
+      {
+        "type": "heading",
+        "text": "Results"
+      },
+      {
+        "type": "paragraph",
+        "text": "We won second place at Formula SAE Nevada, and had the fastest endurance lap overall. We were especially proud of successfully passing technical inspection in the 115°F competition conditions.",
+        "links": []
+      },
+      {
+        "type": "details",
+        "title": "HT05 Vehicle Details",
+        "groups": [
+          {
+            "label": "General",
+            "items": [
+              "Weight: 383 lb (174 kg) measured at Formula SAE"
+            ]
+          },
+          {
+            "label": "Chassis",
+            "items": [
+              "Steel tube space frame"
+            ]
+          },
+          {
+            "label": "Suspension",
+            "items": [
+              "Double unequal length wishbone",
+              "Ohlins TTX25 dampers"
+            ]
+          },
+          {
+            "label": "Powertrain",
+            "items": [
+              "Chain sprocket reduction",
+              "Clutch type limited slip differential"
+            ]
+          },
+          {
+            "label": "Electric Drive",
+            "items": [
+              "Motor: Emrax 207 Medium Voltage",
+              "Inverter: Rinehart PM100DX",
+              "Battery: 72S1P LiCoO 2 pack with 5.8 kWh energy capacity",
+              "Peak outputs: 80 kW",
+              "Peak torque: 160 Nm"
+            ]
+          },
+          {
+            "label": "Aero Package",
+            "items": [
+              "3 element front wing",
+              "3 element rear wing",
+              "Coefficient of lift: -2.084",
+              "Coefficient of drag: 0.907"
+            ]
+          },
+          {
+            "label": "Electrical Controls",
+            "items": [
+              "Low voltage controls: Updated vehicle ECU and created custom dashboard PCB",
+              "High voltage controls: Isolated BMS utilizing Analog Devices LTC6811 chips and custom management software",
+              "Telemetry: Live vehicle data transmission and graphing using AWS"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2021/2021_HT05_HV_board_small.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2021/2021_HT05_brake_assembly_small.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2021/2021_HT05_BMS_small.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2021/2021_HT05_differential_small.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2021/2021_HT05_mainECU_small.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2021/2021_HT05_rear_small.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      }
+    ]
+  },
+  {
+    "year": "2019",
+    "code": "HT04",
+    "blocks": [
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2019/2019_fh_endurance_small.jpg",
+        "alt": "Photo courtesy of Kathryn Lapierre - Dartmouth",
+        "caption": "HT04 on the Endurance Track at Formula Hybrid 2019"
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2019/2019_fh_checkered_flag_small.jpg",
+        "alt": "Photo courtesy of Kathryn Lapierre - Dartmouth",
+        "caption": "HyTech's Car at the Finish Line"
+      },
+      {
+        "type": "heading",
+        "text": "Engineering Summary"
+      },
+      {
+        "type": "paragraph",
+        "text": "For the 2019 competition year, our team continued our iterative design approach. We applied three design principles during our design of HT04: lightness, serviceability, and robustness.",
+        "links": []
+      },
+      {
+        "type": "paragraph",
+        "text": "Our weight decreased 45 lb (20 kg) compared to our 2018 vehicle, with a noticeable weight reduction in each vehicle subsystem.",
+        "links": []
+      },
+      {
+        "type": "paragraph",
+        "text": "We greatly increased vehicle serviceability in a number of ways. We implemented an easy-to-install eccentric chain tensioning system as well as a drivetrain package that could be installed and removed from the vehicle without disassembling. Quick disconnect brake lines allowed us to remove the pedal box or corners without having to rebleed brake lines. Our high voltage battery pack redesign featured easily removable panels and a busbar layout that reduced disassembly and assembly time.",
+        "links": []
+      },
+      {
+        "type": "paragraph",
+        "text": "Our team found many ways of increasing the robustness and reliability of the new design. We designed a rigorous testing platform for our batteries, ensuring that each cell was reliable before assembling it in our high voltage pack. We retrofitted our new electrical system onto an old vehicle, allowing us to perform extensive testing early on in the development cycle. We also developed a new assembly process for our Battery Management System circuit boards, decreasing the failure rate and time spent on assembly.",
+        "links": []
+      },
+      {
+        "type": "heading",
+        "text": "Results"
+      },
+      {
+        "type": "paragraph",
+        "text": "We won first place for the second year in a row at Formula Hybrid, placing first in the Design, Autocross, and Endurance events, and setting a record as the fastest electric team to ever finish the 44 km Endurance course. We also set our own personal record as this was the first competition where we successfully competed in every event.",
+        "links": []
+      },
+      {
+        "type": "details",
+        "title": "HT04 Vehicle Details",
+        "groups": [
+          {
+            "label": "General",
+            "items": [
+              "Weight: 368 lb (166 kg) measured at Formula Hybrid"
+            ]
+          },
+          {
+            "label": "Chassis",
+            "items": [
+              "Steel tube space frame"
+            ]
+          },
+          {
+            "label": "Suspension",
+            "items": [
+              "Double unequal length wishbone",
+              "Ohlins TTX25 dampers"
+            ]
+          },
+          {
+            "label": "Powertrain",
+            "items": [
+              "Chain sprocket reduction",
+              "Clutch type limited slip differential"
+            ]
+          },
+          {
+            "label": "Electric Drive",
+            "items": [
+              "Motor: Emrax 207 Medium Voltage",
+              "Inverter: Rinehart PM100DX",
+              "Battery: 72S1P LiCoO 2 pack with 5.8 kWh energy capacity",
+              "Peak output: 80 kW",
+              "Peak torque: 160 Nm"
+            ]
+          },
+          {
+            "label": "Electrical Controls",
+            "items": [
+              "Low voltage controls: Power distribution module, telemetry and data logging system, and vehicle ECU integrated onto single PCB",
+              "High voltage controls: Isolated BMS utilizing Analog Devices LTC6804 chips and custom management software",
+              "Telemetry: Live vehicle data transmission via cellular network as well as onboard logging"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2019/2019_electrical_1.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2019/2019_mechanical_2.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2019/2019_electrical_3.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2019/2019_mechanical_1.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2019/2019_electrical_2.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2019/2019_mechanical_3.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      }
+    ]
+  },
+  {
+    "year": "2018",
+    "code": "HT03B",
+    "blocks": [
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2018/2018_FSAE_small.jpg",
+        "alt": "Photo courtesy of Jack McMahon",
+        "caption": "HyTech Racing at FSAE Electric 2018"
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2018/2018_FH_small.jpg",
+        "alt": "Photo courtesy of Kathryn Lapierre - Dartmouth",
+        "caption": "HT03B on the track at Formula Hybrid 2018"
+      },
+      {
+        "type": "paragraph",
+        "text": "In 2018, HyTech competed in both the Formula Hybrid and Formula SAE Electric competitions. Our team won first place at Formula Hybrid, placing first in the Design, Project Management, and Endurance events. We won sixth place at FSAE Electric, placing second in the Cost and Efficiency categories.",
+        "links": []
+      },
+      {
+        "type": "details",
+        "title": "HT03B Vehicle Details",
+        "groups": [
+          {
+            "label": "General",
+            "items": [
+              "Weight: 413 lb (187 kg) measured at Formula Hybrid"
+            ]
+          },
+          {
+            "label": "Chassis",
+            "items": [
+              "Steel tube space frame"
+            ]
+          },
+          {
+            "label": "Suspension",
+            "items": [
+              "Double unequal length wishbone",
+              "Ohlins TTX25 dampers"
+            ]
+          },
+          {
+            "label": "Powertrain",
+            "items": [
+              "Chain sprocket reduction",
+              "Clutch type limited slip differential"
+            ]
+          },
+          {
+            "label": "Electric Drive",
+            "items": [
+              "Motor: Emrax 207 Medium Voltage",
+              "Inverter: Rinehart PM100DX",
+              "Battery: 72S1P LiCoO 2 pack with 5.8 kWh energy capacity",
+              "Peak output: 80 kW",
+              "Peak torque: 160 Nm"
+            ]
+          },
+          {
+            "label": "Electrical Controls",
+            "items": [
+              "BMS: Custom 5-board system utilizing Analog Devices LTC6804 chips",
+              "Low voltage control boards: Power distribution unit and dashboard/torque controller unit",
+              "Telemetry: Live wireless data visualization utilizing XBee modems"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2018/2018_electrical_1.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2018/2018_mechanical_2.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2018/2018_electrical_3.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2018/2018_mechanical_1.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2018/2018_electrical_2.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2018/2018_electrical_4.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      }
+    ]
+  },
+  {
+    "year": "2017",
+    "code": null,
+    "blocks": [
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2017/2017_FH_small.jpg",
+        "alt": "HyTech Racing at Formula Hybrid 2017",
+        "caption": "HyTech Racing at Formula Hybrid 2017"
+      },
+      {
+        "type": "paragraph",
+        "text": "In 2017, HyTech completely redesigned the mechanical and electrical systems on a new chassis, bringing the vehicle weight to under 380 pounds. We are proud to have taken first place in the design event at Formula Hybrid 2017.",
+        "links": []
+      }
+    ]
+  },
+  {
+    "year": "2016",
+    "code": null,
+    "blocks": [
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2016/2016_FSAE_small_crop.jpg",
+        "alt": "HyTech Racing at FSAE Electric 2016",
+        "caption": "HyTech Racing at FSAE Electric 2016"
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2016/2016_FH_small.jpg",
+        "alt": "HyTech Racing at Formula Hybrid 2016",
+        "caption": "HyTech Racing at Formula Hybrid 2016"
+      },
+      {
+        "type": "paragraph",
+        "text": "This year HyTech designed and built our vehicle to compete in both Formula Hybrid and Formula SAE Electric competitions.",
+        "links": []
+      },
+      {
+        "type": "details",
+        "title": "Chassis Details",
+        "groups": [
+          {
+            "label": "",
+            "items": [
+              "Completely new team-designed frame",
+              "Torsional stiffness FEA: 2550 ft.lb/deg",
+              "MDF jig designed for efficient and accurate chassis welding"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2016/2016_chassis_small.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2016/2016_design_small.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "details",
+        "title": "Driveline Details",
+        "groups": [
+          {
+            "label": "",
+            "items": [
+              "Motor output (front) sprocket and rear sprocket designed and machined in-house",
+              "Front sprocket machined out of Aluminum 2024 to reduce weight (versus Steel) while maintaining a factor of safety >1",
+              "Hard mounted differential carriers machined out of Aluminum 6061; sticking to a robust and tested design",
+              "Motor mount manufactured from Steel 4041- reduces stress points, holds up to the maximum torque",
+              "Powered by the Enstroj Emrax 207 which is lighter than the other options in the market, yet powerful enough to handle the load of the car"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2016/2016_driveline_1.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2016/2016_driveline_2.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "details",
+        "title": "Mechanical Controls Details",
+        "groups": [
+          {
+            "label": "",
+            "items": [
+              "Steering",
+              "Custom 6061-T6 rack housing allows for low friction rack translation",
+              "32x force magnification from steering wheel to steering rack",
+              "~5° steering free play",
+              "32° of steering",
+              "Brakes",
+              "Adjustable pedal position for better ergonomics",
+              "Manufactured with aluminum for decreased weight"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2016/2016_steering.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2016/2016_brakes.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "details",
+        "title": "Suspension Details",
+        "groups": [
+          {
+            "label": "",
+            "items": [
+              "Short 65\" wheelbase for lower polar moment of inertia",
+              "52\" track width reduces lateral weight transfer and increases lateral force produced by the tires when cornering",
+              "Steering rods aligned to have just 0.1° of steer for two inches of wheel displacement",
+              "Uprights and hubs CNC machined in-house.",
+              "Hubs designed to be interchangeable between left and right corners",
+              "Camber adjustable from 0° to -5.0° by use of threaded washers at the upper A arm point",
+              "Suspension designed to keep outside wheels at a 0° of camber under the maximum allowable body roll of 2° when cornering"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2016/2016_suspension_1.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2016/2016_suspension_2.png",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "details",
+        "title": "Electrical Controls Details",
+        "groups": [
+          {
+            "label": "",
+            "items": [
+              "Modular system of boards allows for easier development and replacement of controls system components",
+              "Electrical boards designed using EAGLE CAD, then manufactured on campus by team members using printed circuit board milling",
+              "Arduino software developed by team members and shared publicly as open source",
+              "Aluminum battery enclosure and front controls enclosure created using water-jet and in-house welding",
+              "Arduino's communicate with motor controller and battery management system entirely over CAN Bus network",
+              "Real-time data is read by the Arduino's and sent to a steering wheel display"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2016/2016_controls_small.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2016/2016_controls_2_small.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "details",
+        "title": "High Voltage System Details",
+        "groups": [
+          {
+            "label": "",
+            "items": [
+              "Emrax 207 Medium Voltage motor powers the drivetrain",
+              "Rinehart PM100DX Motor Controller controls the Emrax motor",
+              "Orion Battery Management System tracks cells",
+              "Single accumulator container holds all batteries and most high-voltage components",
+              "4 team-packaged accumulator segments hold 82 LiFePo4 cells in series"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2016/2016_accumulator_small.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2016/2016_accumulator_2_small.jpg",
+        "alt": "HyTech Racing vehicle",
+        "caption": null
+      }
+    ]
+  },
+  {
+    "year": "2015",
+    "code": null,
+    "blocks": [
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2015/2015_FH_small.jpg",
+        "alt": "HyTech Racing at Formula Hybrid 2015",
+        "caption": "HyTech Racing at Formula Hybrid 2015"
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2015/2015_system_overview.png",
+        "alt": "Vehicle Overview",
+        "caption": "Vehicle Overview"
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2015/2015_design.png",
+        "alt": "CAD Design",
+        "caption": "CAD Design"
+      },
+      {
+        "type": "image",
+        "src": "https://hytechracing.gatech.edu/images/2015/2015_electrical_diagram.png",
+        "alt": "Electrical Overview",
+        "caption": "Electrical Overview"
+      }
+    ]
+  },
+  {
+    "year": "2013",
+    "code": null,
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "HyTech Racing's 2013 team is archived at this link .",
+        "links": [
+          {
+            "href": "http://dcaplan3.wix.com/hytech-racing",
+            "label": "this link"
+          }
+        ]
+      }
+    ]
+  }
+]
