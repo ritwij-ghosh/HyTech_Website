@@ -140,6 +140,107 @@ function createSequence(canvas: HTMLCanvasElement, mobile: boolean, lightweight:
   };
 }
 
+/** Warm the browser's compressed HTTP cache without retaining decoded frames. */
+function createIdlePreloader(mobile: boolean, lightweight: boolean) {
+  if (lightweight) return () => undefined;
+
+  const folder = mobile ? "mobile" : "desktop";
+  const initialWindow = mobile ? 6 : 7;
+  const initialBatch = mobile ? 18 : 24;
+  const byteBudget = (mobile ? 4 : 7) * 1024 * 1024;
+  const queue = Array.from({ length: FRAME_COUNT - initialWindow }, (_, index) => index + initialWindow);
+  const active = new Set<AbortController>();
+  let transferred = 0;
+  let disposed = false;
+  let paused = false;
+  let timer = 0;
+  let idleHandle = 0;
+
+  const cancelScheduled = () => {
+    window.clearTimeout(timer);
+    if (idleHandle && "cancelIdleCallback" in window) window.cancelIdleCallback(idleHandle);
+    timer = 0;
+    idleHandle = 0;
+  };
+
+  const preloadFrame = async (frame: number) => {
+    const controller = new AbortController();
+    active.add(controller);
+    try {
+      const response = await fetch(
+        `/cinematic-veo/frames/${folder}/${String(frame).padStart(4, "0")}.webp?v=${SEQUENCE_VERSION}`,
+        {
+          cache: "force-cache",
+          signal: controller.signal,
+          priority: "low",
+        } as RequestInit & { priority: "low" }
+      );
+      if (!response.ok) throw new Error("Frame unavailable");
+      transferred += (await response.arrayBuffer()).byteLength;
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError" && !disposed) queue.unshift(frame);
+    } finally {
+      active.delete(controller);
+    }
+  };
+
+  const schedule = (count: number, delay: number) => {
+    if (disposed || paused || !queue.length || transferred >= byteBudget) return;
+    cancelScheduled();
+    timer = window.setTimeout(() => {
+      const run = async () => {
+        idleHandle = 0;
+        let remaining = count;
+        while (!disposed && !paused && remaining > 0 && queue.length && transferred < byteBudget) {
+          const pair = queue.splice(0, Math.min(2, remaining));
+          remaining -= pair.length;
+          await Promise.all(pair.map(preloadFrame));
+        }
+        if (!disposed && !paused && queue.length && transferred < byteBudget) schedule(6, 900);
+      };
+      if ("requestIdleCallback" in window) {
+        idleHandle = window.requestIdleCallback(() => void run(), { timeout: 1800 });
+      } else {
+        void run();
+      }
+    }, delay);
+  };
+
+  const pause = () => {
+    paused = true;
+    cancelScheduled();
+    active.forEach(controller => controller.abort());
+  };
+  const resume = () => {
+    if (disposed || document.hidden) return;
+    paused = false;
+    schedule(6, 850);
+  };
+  let resumeTimer = 0;
+  const onScroll = () => {
+    pause();
+    window.clearTimeout(resumeTimer);
+    resumeTimer = window.setTimeout(resume, 900);
+  };
+  const onVisibility = () => document.hidden ? pause() : resume();
+  const begin = () => schedule(initialBatch, 650);
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  document.addEventListener("visibilitychange", onVisibility);
+  if (document.readyState === "complete") begin();
+  else window.addEventListener("load", begin, { once: true });
+
+  return () => {
+    disposed = true;
+    cancelScheduled();
+    window.clearTimeout(resumeTimer);
+    active.forEach(controller => controller.abort());
+    window.removeEventListener("load", begin);
+    window.removeEventListener("scroll", onScroll);
+    document.removeEventListener("visibilitychange", onVisibility);
+  };
+}
+
 export default function HeroSection() {
   const wrapper = useRef<HTMLElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -175,6 +276,7 @@ export default function HeroSection() {
       const lightweight = qualityOverride === "lite" || (qualityOverride !== "high" && constrainedDevice);
       const sequence = createSequence(canvas.current, Boolean(context.conditions?.mobile), lightweight, () => setReady(true), () => setStaticFallback(true));
       if (!sequence) return;
+      const stopIdlePreload = createIdlePreloader(Boolean(context.conditions?.mobile), lightweight);
       const state = { progress: 0 };
       const playhead = { progress: 0 };
       let coast: gsap.core.Tween | null = null;
@@ -241,7 +343,7 @@ export default function HeroSection() {
         .to(veil.current, { opacity: 1, duration: .055, ease: "power1.in" }, .945);
       const visibility = new IntersectionObserver(([entry]) => sequence.visible(entry.isIntersecting));
       visibility.observe(wrapper.current);
-      return () => { visibility.disconnect(); coast?.kill(); timeline.scrollTrigger?.kill(); timeline.kill(); sequence.destroy(); };
+      return () => { visibility.disconnect(); stopIdlePreload(); coast?.kill(); timeline.scrollTrigger?.kill(); timeline.kill(); sequence.destroy(); };
     });
     return () => media.revert();
   }, [staticFallback]);
