@@ -7,22 +7,23 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./HeroSection.module.css";
 
 const FRAME_COUNT = 180;
-const SEQUENCE_VERSION = "v3";
+const SEQUENCE_VERSION = "v4";
 const CHAPTERS = ["Launch", "Commitment", "Rotation", "Flat out"];
 const CHAPTER_CUTS = [.22, .48, .72];
 const MAX_COAST_FRAMES = 5;
 const COAST_DURATION = .34;
 
 /** A small decoded-frame cache: the browser never holds the whole film in RAM. */
-function createSequence(canvas: HTMLCanvasElement, mobile: boolean, onReady: () => void, onFallback: () => void) {
+function createSequence(canvas: HTMLCanvasElement, mobile: boolean, lightweight: boolean, onReady: () => void, onFallback: () => void) {
   const context = canvas.getContext("2d", { alpha: false });
   if (!context) return null;
   const cache = new Map<number, ImageBitmap>();
   const pending = new Map<number, AbortController>();
   const failed = new Set<number>();
-  const limit = mobile ? 10 : 12;
-  const sourceWidth = mobile ? 540 : 1280;
-  const sourceHeight = mobile ? 960 : 720;
+  const limit = lightweight ? (mobile ? 10 : 12) : (mobile ? 7 : 8);
+  const sourceWidth = mobile ? (lightweight ? 540 : 720) : (lightweight ? 1280 : 1600);
+  const sourceHeight = mobile ? (lightweight ? 960 : 1280) : (lightweight ? 720 : 900);
+  const folder = `${mobile ? "mobile" : "desktop"}${lightweight ? "-lite" : ""}`;
   let target = 0;
   let direction = 1;
   let disposed = false;
@@ -76,7 +77,6 @@ function createSequence(canvas: HTMLCanvasElement, mobile: boolean, onReady: () 
       if (cache.has(frame) || pending.has(frame) || failed.has(frame)) continue;
       const controller = new AbortController();
       pending.set(frame, controller);
-      const folder = mobile ? "mobile" : "desktop";
       fetch(`/cinematic-veo/frames/${folder}/${String(frame).padStart(4, "0")}.webp?v=${SEQUENCE_VERSION}`, { signal: controller.signal })
         .then(response => { if (!response.ok) throw new Error("Frame unavailable"); return response.blob(); })
         .then(blob => createImageBitmap(blob))
@@ -97,7 +97,11 @@ function createSequence(canvas: HTMLCanvasElement, mobile: boolean, onReady: () 
   }
 
   const resize = () => {
-    const ratio = Math.min(1, sourceWidth / canvas.clientWidth, sourceHeight / canvas.clientHeight);
+    const ratio = Math.min(
+      window.devicePixelRatio || 1,
+      sourceWidth / Math.max(1, canvas.clientWidth),
+      sourceHeight / Math.max(1, canvas.clientHeight)
+    );
     width = Math.round(canvas.clientWidth * ratio);
     height = Math.round(canvas.clientHeight * ratio);
     canvas.width = width;
@@ -158,7 +162,18 @@ export default function HeroSection() {
       setReduced(isReduced);
       setReady(false);
       if (isReduced) return;
-      const sequence = createSequence(canvas.current, Boolean(context.conditions?.mobile), () => setReady(true), () => setStaticFallback(true));
+      const device = navigator as Navigator & {
+        connection?: { effectiveType?: string; saveData?: boolean };
+        deviceMemory?: number;
+      };
+      const qualityOverride = new URLSearchParams(window.location.search).get("quality");
+      const constrainedDevice = Boolean(
+          device.connection?.saveData ||
+          ["slow-2g", "2g"].includes(device.connection?.effectiveType ?? "") ||
+          (device.deviceMemory && device.deviceMemory <= 2)
+      );
+      const lightweight = qualityOverride === "lite" || (qualityOverride !== "high" && constrainedDevice);
+      const sequence = createSequence(canvas.current, Boolean(context.conditions?.mobile), lightweight, () => setReady(true), () => setStaticFallback(true));
       if (!sequence) return;
       const state = { progress: 0 };
       const playhead = { progress: 0 };
