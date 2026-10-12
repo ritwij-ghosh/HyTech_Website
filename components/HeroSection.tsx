@@ -6,11 +6,11 @@ import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import styles from "./HeroSection.module.css";
 
-const FRAME_COUNT = 240;
-const SEQUENCE_VERSION = "v2";
+const FRAME_COUNT = 180;
+const SEQUENCE_VERSION = "v3";
 const CHAPTERS = ["Launch", "Commitment", "Rotation", "Flat out"];
 const CHAPTER_CUTS = [.22, .48, .72];
-const MAX_COAST_FRAMES = 6;
+const MAX_COAST_FRAMES = 5;
 const COAST_DURATION = .34;
 
 /** A small decoded-frame cache: the browser never holds the whole film in RAM. */
@@ -20,8 +20,11 @@ function createSequence(canvas: HTMLCanvasElement, mobile: boolean, onReady: () 
   const cache = new Map<number, ImageBitmap>();
   const pending = new Map<number, AbortController>();
   const failed = new Set<number>();
-  const limit = mobile ? 24 : 32;
+  const limit = mobile ? 10 : 12;
+  const sourceWidth = mobile ? 540 : 1280;
+  const sourceHeight = mobile ? 960 : 720;
   let target = 0;
+  let direction = 1;
   let disposed = false;
   let started = false;
   let width = 1;
@@ -47,24 +50,34 @@ function createSequence(canvas: HTMLCanvasElement, mobile: boolean, onReady: () 
   }
 
   function trim() {
+    const wanted = new Set(wantedFrames());
     while (cache.size > limit) {
-      const farthest = [...cache.keys()].sort((a, b) => Math.abs(b - target) - Math.abs(a - target))[0];
+      const candidates = [...cache.keys()].filter(frame => !wanted.has(frame));
+      const pool = candidates.length ? candidates : [...cache.keys()];
+      const farthest = pool.sort((a, b) => Math.abs(b - target) - Math.abs(a - target))[0];
       cache.get(farthest)?.close();
       cache.delete(farthest);
     }
   }
 
+  function wantedFrames() {
+    const wanted = [target];
+    const ahead = Math.ceil((limit - 1) * .75);
+    const behind = limit - 1 - ahead;
+    for (let i = 1; i <= ahead; i++) wanted.push(target + i * direction);
+    for (let i = 1; i <= behind; i++) wanted.push(target - i * direction);
+    return wanted.filter(frame => frame >= 0 && frame < FRAME_COUNT);
+  }
+
   function pump() {
     if (disposed || !inView) return;
-    const wanted = [target];
-    for (let i = 1; i <= Math.floor(limit / 2) - 1; i++) wanted.push(target + i, target - i);
-    for (const frame of wanted) {
+    for (const frame of wantedFrames()) {
       if (pending.size >= 4) break;
-      if (frame < 0 || frame >= FRAME_COUNT || cache.has(frame) || pending.has(frame) || failed.has(frame)) continue;
+      if (cache.has(frame) || pending.has(frame) || failed.has(frame)) continue;
       const controller = new AbortController();
       pending.set(frame, controller);
       const folder = mobile ? "mobile" : "desktop";
-      fetch(`/cinematic-veo/frames/${folder}/${String(frame).padStart(4, "0")}.jpg?v=${SEQUENCE_VERSION}`, { signal: controller.signal })
+      fetch(`/cinematic-veo/frames/${folder}/${String(frame).padStart(4, "0")}.webp?v=${SEQUENCE_VERSION}`, { signal: controller.signal })
         .then(response => { if (!response.ok) throw new Error("Frame unavailable"); return response.blob(); })
         .then(blob => createImageBitmap(blob))
         .then(bitmap => {
@@ -84,7 +97,7 @@ function createSequence(canvas: HTMLCanvasElement, mobile: boolean, onReady: () 
   }
 
   const resize = () => {
-    const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
+    const ratio = Math.min(1, sourceWidth / canvas.clientWidth, sourceHeight / canvas.clientHeight);
     width = Math.round(canvas.clientWidth * ratio);
     height = Math.round(canvas.clientHeight * ratio);
     canvas.width = width;
@@ -98,7 +111,9 @@ function createSequence(canvas: HTMLCanvasElement, mobile: boolean, onReady: () 
   pump();
   return {
     seek(progress: number) {
-      target = Math.min(FRAME_COUNT - 1, Math.max(0, Math.round(progress * (FRAME_COUNT - 1))));
+      const nextTarget = Math.min(FRAME_COUNT - 1, Math.max(0, Math.round(progress * (FRAME_COUNT - 1))));
+      if (nextTarget !== target) direction = Math.sign(nextTarget - target);
+      target = nextTarget;
       // Prioritize a fast scroll jump instead of completing obsolete requests.
       pending.forEach((controller, frame) => {
         if (Math.abs(frame - target) > limit) controller.abort();
@@ -221,10 +236,10 @@ export default function HeroSection() {
       <noscript><style>{"#hero { height: 100svh; }"}</style></noscript>
       <div className={styles.stage}>
         <picture className={styles.poster}>
-          <source media="(max-width: 767px)" srcSet={`/cinematic-veo/poster-mobile.jpg?v=${SEQUENCE_VERSION}`} />
+          <source media="(max-width: 767px)" srcSet={`/cinematic-veo/poster-mobile.webp?v=${SEQUENCE_VERSION}`} />
           {/* Native picture provides a zero-JavaScript, reduced-motion and load-failure fallback. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`/cinematic-veo/poster.jpg?v=${SEQUENCE_VERSION}`} alt="HyTech's black, white and gold number 204 electric race car moving at speed on a circuit" fetchPriority="high" />
+          <img src={`/cinematic-veo/poster.webp?v=${SEQUENCE_VERSION}`} alt="HyTech's black, white and gold number 204 electric race car moving at speed on a circuit" fetchPriority="high" />
         </picture>
         <canvas ref={canvas} className={`${styles.canvas} ${ready && !reduced ? styles.ready : ""}`} aria-hidden="true" />
         <div className={styles.shade} aria-hidden="true" />
